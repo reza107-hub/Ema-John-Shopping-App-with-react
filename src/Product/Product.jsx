@@ -1,7 +1,8 @@
 import React from "react";
 
-const Product = ({ product }) => {
-  const { id, img, name, price, ratings, seller } = product;
+const Product = (props) => {
+  const {img, name, price, ratings, seller } = props.product;
+  const handleCart = props.handleCart
   return (
     <div className="mt-5">
       <div className="card relative text-left p-0 h-[508px] bg-base-100 border border-[#95A0A7]">
@@ -22,7 +23,7 @@ const Product = ({ product }) => {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 bg-[#FFE0B3] border border-[#95A0A7] w-full h-[48px] flex items-center justify-center hover:bg-slate-200">
+        <div onClick={()=> handleCart(handleCart)} className="absolute bottom-0 bg-[#FFE0B3] border border-[#95A0A7] w-full h-[48px] flex items-center justify-center hover:bg-slate-200">
           <button className="font-semibold flex">
             Add To Cart{" "}
             <svg
