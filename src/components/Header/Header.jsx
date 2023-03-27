@@ -6,7 +6,7 @@ const Header = () => {
       <div className="navbar bg-[#1C2B35;] text-[#FFFFFF]">
         <div className="flex-1">
           <a className="btn btn-ghost normal-case text-xl">
-            <img src="../../../images/Logo.svg" alt="" />
+            <img src="Logo.svg" alt="" />
           </a>
         </div>
         <div className="flex-none">
