@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../../Product/Product';
+import Cart from '../cart/Cart';
 
 const Shop = () => {
     const [products,setProduct] = useState([])
@@ -14,15 +15,15 @@ const Shop = () => {
         setCart(newCart)
     }
     return (
-        <div className='shop grid grid-cols-[4fr,1fr]'>
-            <div className='shop-container grid grid-cols-3 gap-5 mx-[80px]'>
+        <div className='shop lg:grid lg:grid-cols-[4fr,1fr]'>
+            <div className='shop-container grid lg:grid-cols-3 gap-5 lg:mx-[80px]'>
             {
                 products.map(product=> <Product key={product.id} product={product} handleCart={handleCart}></Product>)
             }
             </div>
-            <div className='order-summary bg-[#FF99004D]'>
-                <h2 className='mt-4 text-center text-2xl'>Order Summary</h2>
-                <p className='pl-3 pt-4'>Selected Item :{cart.length}</p>
+            <div className='order-summary '>
+                <Cart cart={cart}></Cart>
+                
             </div>
         </div>
     );

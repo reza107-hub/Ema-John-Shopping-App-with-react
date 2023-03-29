@@ -23,7 +23,7 @@ const Product = (props) => {
             </div>
           </div>
         </div>
-        <div onClick={()=> handleCart(handleCart)} className="absolute bottom-0 bg-[#FFE0B3] border border-[#95A0A7] w-full h-[48px] flex items-center justify-center hover:bg-slate-200">
+        <div onClick={()=> handleCart(props.product)} className="absolute bottom-0 bg-[#FFE0B3] border border-[#95A0A7] w-full h-[48px] flex items-center justify-center hover:bg-slate-200">
           <button className="font-semibold flex">
             Add To Cart{" "}
             <svg
