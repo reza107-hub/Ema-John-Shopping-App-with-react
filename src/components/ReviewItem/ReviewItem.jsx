@@ -1,7 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-const ReviewItem = ({ product }) => {
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+
+const ReviewItem = ({ product, handleRemoveCart }) => {
   const { img, name, price, id, quantity } = product;
   return (
     <div className="lg:w-[571px] mb-6 border border-solid border-gray-600 rounded-lg p-3 flex justify-center items-center">
@@ -15,8 +16,11 @@ const ReviewItem = ({ product }) => {
           Quantity: <span className="text-[#FF9900]">{quantity}</span>
         </p>
       </div>
-      <button className="bg-[#EB57574D] w-[55px] h-[55px] rounded-full">
-        <FontAwesomeIcon className="text-[#EB5757]" icon={faTrashCan} />
+      <button onClick={()=> handleRemoveCart(id)} className="bg-[#EB57574D] w-[55px] h-[55px] rounded-full">
+        <FontAwesomeIcon
+          className="text-[#EB5757] w-[31.43px]"
+          icon={faTrashAlt}
+        />
       </button>
     </div>
   );
