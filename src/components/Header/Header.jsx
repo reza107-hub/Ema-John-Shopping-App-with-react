@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div>
-      <div className="navbar bg-[#1C2B35;] text-[#FFFFFF]">
+    <div className="navbar bg-[#1C2B35;] text-[#FFFFFF]">
         <div className="flex-1">
           <a className="btn btn-ghost normal-case text-xl">
             <img src="Logo.svg" alt="" />
@@ -27,7 +26,6 @@ const Header = () => {
           </ul>
         </div>
       </div>
-    </div>
   );
 };
 

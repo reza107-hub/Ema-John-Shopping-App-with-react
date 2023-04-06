@@ -2,18 +2,22 @@ import React, { useState } from "react";
 import Cart from "../cart/Cart";
 import { useLoaderData } from "react-router-dom";
 import ReviewItem from "../ReviewItem/ReviewItem";
-import { removeFromDb } from "../../utilities/fakedb";
+import { deleteShoppingCart, removeFromDb } from "../../utilities/fakedb";
 
 const Order = () => {
   const savedCart = useLoaderData();
   const [cart, setCart] = useState(savedCart);
 
   const handleRemoveCart = (id) => {
-    const remaining = cart.filter(pd=> pd.id!==id)
-    setCart(remaining)
-    removeFromDb(id)
+    const remaining = cart.filter((pd) => pd.id !== id);
+    setCart(remaining);
+    removeFromDb(id);
   };
 
+  const removeAllRemove = () => {
+    setCart([]);
+    deleteShoppingCart();
+  };
   console.log(savedCart);
   return (
     <div className="shop lg:grid lg:grid-cols-[2fr,1fr]">
@@ -27,7 +31,7 @@ const Order = () => {
         ))}
       </div>
       <div className="order-summary max-w-xs">
-        <Cart cart={cart}></Cart>
+        <Cart cart={cart} removeAllRemove={removeAllRemove}></Cart>
       </div>
     </div>
   );

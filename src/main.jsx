@@ -15,23 +15,23 @@ const router = createBrowserRouter([
     element: <Home></Home>,
     children: [
       {
-        path: '/',
-        element:<Shop></Shop>
+        path: "/",
+        element: <Shop></Shop>,
       },
       {
-        path: '/order',
-        element:<Order></Order>,
-        loader: cartLoaderData
+        path: "/order",
+        element: <Order></Order>,
+        loader: cartLoaderData,
       },
       {
-        path: '/inventory',
-        element:<Inventory></Inventory>
+        path: "/inventory",
+        element: <Inventory></Inventory>,
       },
       {
-        path: '/login',
-        element:<Login></Login>
-      }
-    ]
+        path: "/login",
+        element: <Login></Login>,
+      },
+    ],
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -16,7 +16,10 @@ const ReviewItem = ({ product, handleRemoveCart }) => {
           Quantity: <span className="text-[#FF9900]">{quantity}</span>
         </p>
       </div>
-      <button onClick={()=> handleRemoveCart(id)} className="bg-[#EB57574D] w-[55px] h-[55px] rounded-full">
+      <button
+        onClick={() => handleRemoveCart(id)}
+        className="bg-[#EB57574D] w-[55px] h-[55px] rounded-full"
+      >
         <FontAwesomeIcon
           className="text-[#EB5757] w-[31.43px]"
           icon={faTrashAlt}
