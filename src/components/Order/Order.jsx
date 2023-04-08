@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Cart from "../cart/Cart";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ReviewItem from "../ReviewItem/ReviewItem";
 import { deleteShoppingCart, removeFromDb } from "../../utilities/fakedb";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCreditCard } from "@fortawesome/free-solid-svg-icons";
 
 const Order = () => {
   const savedCart = useLoaderData();
@@ -31,7 +33,12 @@ const Order = () => {
         ))}
       </div>
       <div className="order-summary max-w-xs">
-        <Cart cart={cart} removeAllRemove={removeAllRemove}></Cart>
+        <Cart cart={cart} removeAllRemove={removeAllRemove}>
+          <Link to="/checkout">
+            <span>Proceed Checkout</span>{" "}
+          </Link>
+          <FontAwesomeIcon icon={faCreditCard}></FontAwesomeIcon>
+        </Cart>
       </div>
     </div>
   );

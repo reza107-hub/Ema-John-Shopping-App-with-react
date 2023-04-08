@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Cart = ({ cart, removeAllRemove }) => {
+const Cart = ({ cart, removeAllRemove, children }) => {
   let totalPrice = 0;
   let shipping = 0;
   let quantity = 0;
@@ -30,6 +30,7 @@ const Cart = ({ cart, removeAllRemove }) => {
         <span>Clear Cart</span>
         <FontAwesomeIcon icon={faTrashAlt} />
       </button>
+      <button className="bg-[#FF9900] text-white w-[90%] ml-4 mt-4 flex justify-between items-center p-2 rounded-lg">{children}</button>
     </div>
   );
 };

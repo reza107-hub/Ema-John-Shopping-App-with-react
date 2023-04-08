@@ -6,6 +6,9 @@ import {
   getShoppingCart,
 } from "../../utilities/fakedb";
 import Cart from "../cart/Cart";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Shop = () => {
   const [products, setProduct] = useState([]);
@@ -60,7 +63,12 @@ const Shop = () => {
         ))}
       </div>
       <div className="order-summary ">
-        <Cart cart={cart} removeAllRemove={removeAllRemove}></Cart>
+        <Cart cart={cart} removeAllRemove={removeAllRemove}>
+          <Link to="/order">
+            <span>Review Order</span>
+          </Link>
+          <FontAwesomeIcon icon={faArrowRight} />
+        </Cart>
       </div>
     </div>
   );
