@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Register.css";
 
-const Login = () => {
+const Register = () => {
   return (
     <div className="hero min-h-screen">
-      <div className="hero-content flex-col">
+      <div className="hero-content flex-col ">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl shadow-[#FFE0B3] bg-base-100">
           <div className="card-body">
             <div className="text-center lg:text-left">
-              <h1 className="text-xl font-thin text-center">Please Sign in</h1>
+              <h1 className="text-xl font-thin text-center">Sign Up</h1>
             </div>
             <div className="form-control">
               <label className="label">
@@ -33,15 +34,24 @@ const Login = () => {
                 className="input input-bordered"
                 required
               />
-
               <label className="label">
-                <Link to="/register" className="label-text-alt link link-hover">
-                  New in Ema-JHon? Click here.
+                <span className="label-text">Confirm Password</span>
+              </label>
+              <input
+                type="text"
+                placeholder="password"
+                name="password"
+                className="input input-bordered"
+                required
+              />
+              <label className="label">
+                <Link to="/login" className="label-text-alt link link-hover">
+                  Already have an account?
                 </Link>
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Register</button>
             </div>
             <div className="separator mt-5">
               <hr />
@@ -63,4 +73,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
