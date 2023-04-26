@@ -34,6 +34,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         Swal.fire("Good job!", "Sign Up successful!", "success");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
