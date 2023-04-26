@@ -1,13 +1,45 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
+import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.confirmPassword.value;
+    e.target.reset();
+    console.log(email, password, confirmPassword);
+    if (password !== confirmPassword) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password didn't match!",
+      });
+    } else if (password.length < 6) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password must contain 6 character",
+      });
+    }
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        Swal.fire("Good job!", "Sign Up successful!", "success");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col ">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl shadow-[#FFE0B3] bg-base-100">
-          <div className="card-body">
+          <form onSubmit={handleSubmit} className="card-body">
             <div className="text-center lg:text-left">
               <h1 className="text-xl font-thin text-center">Sign Up</h1>
             </div>
@@ -40,7 +72,7 @@ const Register = () => {
               <input
                 type="text"
                 placeholder="password"
-                name="password"
+                name="confirmPassword"
                 className="input input-bordered"
                 required
               />
@@ -53,7 +85,7 @@ const Register = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>
-            <div className="separator mt-5">
+            {/* <div className="separator mt-5">
               <hr />
               <p className="or">or</p>
               <hr />
@@ -65,8 +97,8 @@ const Register = () => {
                 alt=""
               />
               <span>Continue with Google</span>
-            </button>
-          </div>
+            </button> */}
+          </form>
         </div>
       </div>
     </div>
